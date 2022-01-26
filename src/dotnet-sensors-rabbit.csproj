@@ -7,4 +7,8 @@
     <RootNamespace>dotnet_sensors_rabbit</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
+  </ItemGroup>
+
 </Project>
