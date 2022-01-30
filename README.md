@@ -1,7 +1,6 @@
 # .NET Sensors RabbitMQ
-*This is a port of [spring-sensors-rabbit](https://github.com/sample-accelerators/spring-sensors-rabbit).*
 
-This is a .NET application that uses Tanzu Application Platform along with the Services Toolkit to connect to a RabbitMQ cluster.
+This is an ASP.NET MVC web site that writes to RabbitMQ, and is intended to be used with [spring-sensors-rabbit](https://github.com/sample-accelerators/spring-sensors-rabbit). It works with Tanzu Application Platform along with the Services Toolkit to connect to a RabbitMQ cluster.
 
 * Install cluster operator
     * `kapp deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml `

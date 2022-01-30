@@ -1,7 +1,12 @@
+using dotnet_sensors_rabbit;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<ServiceBindingsReader>();
+builder.Services.AddSingleton<SensorHostedService>();
+builder.Services.AddSingleton<RabbitMqHelper>();
 
 var app = builder.Build();
 

@@ -1,8 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Guid>
+@{
+    ViewData["Title"] = "Sensor Publisher";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Sensor Publisher</h1>
+    @if (Model != null && Model.Any())
+    {
+        <h2>Sensor Ids</h2>
+        @foreach (var sensorId in Model)
+        {
+            <p>@sensorId.ToString()</p>
+        }
+    }
 </div>

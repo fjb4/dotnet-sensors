@@ -4,6 +4,9 @@ metadata:
   name: dotnet-sensors-rabbit
   labels:
     apps.tanzu.vmware.com/workload-type: web
+  annotations:
+    autoscaling.knative.dev/minScale: 1
+    autoscaling.knative.dev/maxScale: 1
 spec:
   source:
     git:
@@ -15,4 +18,4 @@ spec:
       ref:
         apiVersion: rabbitmq.com/v1beta1
         kind: RabbitmqCluster
-        name: rmq-1
+        name: example-rabbitmq-cluster-1

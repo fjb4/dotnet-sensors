@@ -1,0 +1,9 @@
+accelerator:
+  displayName: .NET Sensors
+  description: A .NET application for publishing sensor data
+  iconUrl: https://dashboard.snapcraft.io/site_media/appmedia/2018/11/indicator-sensors_r8EdpLP.png
+  tags:
+    - dotnet
+    - C#
+    - tanzu
+  options:
