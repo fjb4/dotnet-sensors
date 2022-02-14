@@ -3,7 +3,31 @@ accelerator:
   description: A .NET application for publishing sensor data
   iconUrl: https://dashboard.snapcraft.io/site_media/appmedia/2018/11/indicator-sensors_r8EdpLP.png
   tags:
-    - dotnet
-    - C#
-    - tanzu
+  - dotnet
+  - C#
+  - tanzu
   options:
+  - name: gitUrl
+    label: Git Repository URL
+    display: true
+    description: Git Repository URL of the application's source code
+    inputType: text
+    dataType: string
+    defaultValue: "https://github.com/tanzu-end-to-end/spring-sensors.git"
+  - name: gitBranch
+    label: Git Repository Branch
+    display: true
+    description: Git Repository Branch of the application's source code
+    inputType: text
+    dataType: string
+    defaultValue: "main"
+engine:
+  merge:
+  - include: [ "**" ]
+    chain:
+    - type: ReplaceText
+      substitutions:
+      - text: https://github.com/fjb4/dotnet-sensors-rabbit.git
+        with: "#gitUrl"
+      - text: master
+        with: "#gitBranch"

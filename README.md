@@ -11,7 +11,7 @@ This has been tested with .NET 6 and TAP 1.0.
 ## Prerequisites
 
 * Provision a Kubernetes cluster
-* [Install TAP](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) in the cluster
+* [Install TAP](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html) into the cluster using the "full" profile
 * Install RabbitMQ cluster operator and create RabbitMQ cluster
     * Install [RabbitMQ cluster operator](https://github.com/rabbitmq/cluster-operator)
         * `kapp deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/download/v1.11.1/cluster-operator.yml `
@@ -25,7 +25,13 @@ This has been tested with .NET 6 and TAP 1.0.
 * Register the .NET Sensor application accelerator with TAP
     * `tanzu accelerator create dotnet-sensors-rabbit --git-repository https://github.com/fjb4/dotnet-sensors-rabbit --git-branch master`
 
+* Create an empty Github repository for your .NET Sensor application and note its URL.
 
 ## Deploy and Run .NET Sensors
 
-* TODO
+### Initial version of app
+
+* Generate application skeleton from app accelerator
+  * Navigate to Application Accelerator section of TAP GUI and choose the ".NET Sensors" template.
+  * Specify the Git Repository URL and Branch for your code (using the previously created Github repo, in the prerequisites).
+  * 

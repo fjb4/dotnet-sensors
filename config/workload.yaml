@@ -10,7 +10,7 @@ metadata:
 spec:
   source:
     git:
-      url: https://github.com/fjb4/dotnet-sensors-rabbit
+      url: https://github.com/fjb4/dotnet-sensors-rabbit.git
       ref:
         branch: master
   serviceClaims:
