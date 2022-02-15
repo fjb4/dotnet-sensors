@@ -13,7 +13,7 @@ accelerator:
     description: Git Repository URL of the application's source code
     inputType: text
     dataType: string
-    defaultValue: "https://github.com/tanzu-end-to-end/spring-sensors.git"
+    defaultValue: "https://github.com/fjb4/dotnet-sensors.git"
   - name: gitBranch
     label: Git Repository Branch
     display: true
@@ -27,7 +27,7 @@ engine:
     chain:
     - type: ReplaceText
       substitutions:
-      - text: https://github.com/fjb4/dotnet-sensors-rabbit.git
+      - text: https://github.com/fjb4/dotnet-sensors.git
         with: "#gitUrl"
       - text: master
         with: "#gitBranch"

@@ -1,6 +1,6 @@
-# .NET Sensors RabbitMQ
+# .NET Sensors
 
-This is a .NET web site that is intended to be used in conjunction with [spring-sensors-rabbit](https://github.com/sample-accelerators/spring-sensors-rabbit). These two applications are intended to be deployed together in a Kubernetes cluster running  [Tanzu Application Platform](https://tanzu.vmware.com/application-platform) (TAP). This .NET application can be used to publish random sensor data to RabbitMQ, and the Spring application can consume that data and display it.
+This is a .NET web site that is intended to be used in conjunction with [spring-sensors](https://github.com/sample-accelerators/spring-sensors). These two applications are intended to be deployed together in a Kubernetes cluster running  [Tanzu Application Platform](https://tanzu.vmware.com/application-platform) (TAP). This .NET application can be used to publish random sensor data to RabbitMQ, and the Spring application can consume that data and display it.
 
 These applications can be used together to demonstrate TAP's ability to easily build and deploy both .NET and Spring workloads, and it shows them sharing data via RabbitMQ. RabbitMQ is hosted in Kubernetes using the [RabbitMQ Cluster Kubernetes Operator](https://github.com/rabbitmq/cluster-operator). .NET Sensors utilizes TAP's [Services Toolkit](https://docs.vmware.com/en/Tanzu-Application-Platform/1.0/tap/GUID-services-toolkit-about.html) to connect to RabbitMQ.
 
@@ -17,21 +17,12 @@ This has been tested with .NET 6 and TAP 1.0.
         * `kapp deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/download/v1.11.1/cluster-operator.yml `
 
     * Assign permissions
-        * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors-rabbit/master/k8s/rabbitmqcluster-read-write.yaml`
+        * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/master/k8s/rabbitmqcluster-read-write.yaml`
 
     * Create the "example-rabbitmq-cluster-1" RabbitMQ cluster that will be used by the .NET and Spring Sensors applications (wait for it to complete)
-        * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors-rabbit/master/k8s/rabbitmq-cluster.yaml`
+        * `kubectl apply -f https://raw.githubusercontent.com/fjb4/dotnet-sensors/master/k8s/rabbitmq-cluster.yaml`
 
 * Register the .NET Sensor application accelerator with TAP
-    * `tanzu accelerator create dotnet-sensors-rabbit --git-repository https://github.com/fjb4/dotnet-sensors-rabbit --git-branch master`
+    * `tanzu accelerator create dotnet-sensors-rabbit --git-repository https://github.com/fjb4/dotnet-sensors --git-branch main`
 
-* Create an empty Github repository for your .NET Sensor application and note its URL.
-
-## Deploy and Run .NET Sensors
-
-### Initial version of app
-
-* Generate application skeleton from app accelerator
-  * Navigate to Application Accelerator section of TAP GUI and choose the ".NET Sensors" template.
-  * Specify the Git Repository URL and Branch for your code (using the previously created Github repo, in the prerequisites).
-  * 
+This project is referenced by [Bush-Womack-TAP-Workshop](https://github.com/stwomack/Bush-Womack-TAP-Workshop).

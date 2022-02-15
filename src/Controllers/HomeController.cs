@@ -6,12 +6,10 @@ namespace dotnet_sensors_rabbit.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
     private readonly SensorHostedService _sensorHostedService;
 
-    public HomeController(ILogger<HomeController> logger, SensorHostedService sensorHostedService)
+    public HomeController(SensorHostedService sensorHostedService)
     {
-        _logger = logger;
         _sensorHostedService = sensorHostedService;
     }
 
@@ -25,32 +23,18 @@ public class HomeController : Controller
     public IActionResult Start()
     {
         _sensorHostedService.StartAsync(CancellationToken.None);
-        return View();
+
+        var sensorIds = _sensorHostedService.GetSensorIds();
+        return View(sensorIds);
     }
 
     [Route("Stop")]
     public IActionResult Stop()
     {
         _sensorHostedService.StopAsync(CancellationToken.None);
-        return View();
-    }
-
-    [Route("AddSensor")]
-    public IActionResult AddSensor()
-    {
-        _sensorHostedService.AddSensor();
 
         var sensorIds = _sensorHostedService.GetSensorIds();
-        return View(sensorIds.Count());
-    }
-
-    [Route("RemoveSensor")]
-    public IActionResult RemoveSensor()
-    {
-        _sensorHostedService.RemoveSensor();
-
-        var sensorIds = _sensorHostedService.GetSensorIds();
-        return View(sensorIds.Count());
+        return View(sensorIds);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

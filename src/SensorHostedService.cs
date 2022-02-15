@@ -12,6 +12,7 @@ public class SensorHostedService : IHostedService, IDisposable
     {
         _logger = logger;
         _rabbitMqHelper = rabbitMqHelper;
+        AddSensor(1);
     }
 
     public void Dispose()
@@ -52,7 +53,7 @@ public class SensorHostedService : IHostedService, IDisposable
         }
     }
 
-    public void AddSensor()
+    public void AddSensor(int count = 1)
     {
         _sensorIds.Push(Guid.NewGuid());
     }

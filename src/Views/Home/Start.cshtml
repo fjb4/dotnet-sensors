@@ -1,7 +1,16 @@
+@model IEnumerable<Guid>
 @{
     ViewData["Title"] = "Started Publishing Sensor Data";
 }
 
 <div class="text-center">
     <h1 class="display-4">Started Publishing Sensor Data</h1>
+    @if (Model != null && Model.Any())
+    {
+        <h2>Sensor Ids</h2>
+        @foreach (var sensorId in Model)
+        {
+            <p>@sensorId.ToString()</p>
+        }
+    }
 </div>
