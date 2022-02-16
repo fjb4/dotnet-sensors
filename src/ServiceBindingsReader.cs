@@ -32,7 +32,7 @@ public class ServiceBindingsReader
             {
                 var key = Path.GetFileName(file);
                 var value = File.ReadAllText(file);
-                _logger.LogInformation("Service binding {key}: {value}", file, value);
+                //_logger.LogInformation("Service binding {key}: {value}", file, value);
 
                 dict.Add(key, value);
             }

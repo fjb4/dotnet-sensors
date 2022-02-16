@@ -55,7 +55,10 @@ public class SensorHostedService : IHostedService, IDisposable
 
     public void AddSensor(int count = 1)
     {
-        _sensorIds.Push(Guid.NewGuid());
+        for (var i = 0; i < count; i++)
+        {
+            _sensorIds.Push(Guid.NewGuid());
+        }
     }
 
     public void RemoveSensor()
